@@ -42,6 +42,7 @@ describe("AddMovieModal Component", () => {
     /**
      * Example 2: Testing modal content when visible
      */
+
     test("should render modal content when show is true", () => {
         render(
             <AddMovieModal
@@ -67,6 +68,7 @@ describe("AddMovieModal Component", () => {
      * Example 3: Testing form input with getByLabelText
      * - Shows how to find inputs by their associated labels
      */
+
     test("should allow entering YouTube ID using getByLabelText", () => {
         render(
             <AddMovieModal
@@ -90,6 +92,7 @@ describe("AddMovieModal Component", () => {
      * - Demonstrates verifying function calls with jest.fn()
      * - Uses getAllByRole and index to handle multiple "Close" buttons
      */
+
     test("should call handleClose when Close button is clicked", () => {
         render(
             <AddMovieModal
