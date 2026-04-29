@@ -1,6 +1,6 @@
 import type { Movie } from "../src/interfaces/movie";
 import { MovieEditor } from "../src/components/MovieEditor";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 describe("MovieEditor Component", () => {
     const mockMovie: Movie = {
@@ -37,5 +37,20 @@ describe("MovieEditor Component", () => {
         const title = screen.getByDisplayValue("The Test Movie");
 
         expect(title).toBeInTheDocument();
+    });
+    
+    //title function
+    test("updates title input", () => {
+        const input = screen.getByDisplayValue("The Test Movie");
+        fireEvent.change(input, { target: { value: "New Title"}});
+        
+        expect(input).toHaveValue("New Title");
+    });
+    
+    test("updates release year input", () => {
+        const input = screen.getByDisplayValue("2020");
+        fireEvent.change(input, { target: { value: "2025"}});
+
+        expect(input).toHaveValue(2025);
     });
 });
